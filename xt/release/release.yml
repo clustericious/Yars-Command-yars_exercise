@@ -11,6 +11,8 @@ pod_spelling_system:
     - PUTs
     - chunksize
     - Yars
+    - Tilmes
+    - GSFC
 
 pod_coverage:
   skip: 0
