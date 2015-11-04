@@ -1,4 +1,6 @@
+AnyEvent::Open3::Simple
 Digest::MD5
+EV
 ExtUtils::MakeMaker
 List::Util
 Log::Log4perl
@@ -7,6 +9,8 @@ Number::Bytes::Human
 Parallel::ForkManager
 Path::Tiny
 Pod::Usage::CommandLine
+Test::Clustericious::Cluster
+Test::Clustericious::Config
 Test::More
 Time::HiRes
 Yars::Client

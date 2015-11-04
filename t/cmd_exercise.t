@@ -2,6 +2,7 @@ use strict;
 use warnings;
 use Test::Clustericious::Config;
 use Test::Clustericious::Cluster;
+use EV;
 use AnyEvent::Open3::Simple;
 use Yars::Command::yars_exercise;
 use Test::More tests => 13;
