@@ -10,4 +10,5 @@ Path::Tiny
 Pod::Usage::CommandLine
 Test::Clustericious::Cluster
 Test::More
+YAML::XS
 Yars::Client

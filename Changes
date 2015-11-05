@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Added itration capability to specify
+    testing with different sizes; otput
+    will dump a .csv
 
 0.01      2015-11-03 07:36:55 -0500
   - initial version
