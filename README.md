@@ -4,7 +4,7 @@ yars\_exercise - Exercise a Yars server from the client side
 
 # VERSION
 
-version 0.01
+version 0.02
 
 # SYNOPSIS
 
