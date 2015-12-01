@@ -13,6 +13,8 @@ pod_spelling_system:
     - Yars
     - Tilmes
     - GSFC
+    - CSV
+    - numclients
 
 pod_coverage:
   skip: 0
