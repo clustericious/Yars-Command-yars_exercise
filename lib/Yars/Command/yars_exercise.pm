@@ -99,6 +99,20 @@ Prints the L<Yars> version.
 
  $ yars_exercise -runs runs_desc.txt
 
+=head1 SEE ALSO
+
+=over 4
+
+=item L<Yars>
+
+=item L<yarsclient>
+
+=item L<Yars::Client>
+
+=item L<Clustericious>
+
+=back
+
 =cut
 
 use strict;

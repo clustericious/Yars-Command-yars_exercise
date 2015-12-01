@@ -99,6 +99,13 @@ Prints the [Yars](https://metacpan.org/pod/Yars) version.
 
     $ yars_exercise -runs runs_desc.txt
 
+# SEE ALSO
+
+- [Yars](https://metacpan.org/pod/Yars)
+- [yarsclient](https://metacpan.org/pod/yarsclient)
+- [Yars::Client](https://metacpan.org/pod/Yars::Client)
+- [Clustericious](https://metacpan.org/pod/Clustericious)
+
 # AUTHOR
 
 Original author: Curt Tilmes
