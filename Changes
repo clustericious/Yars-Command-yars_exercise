@@ -2,6 +2,11 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.03      2015-12-01 11:16:05 -0500
+  - Clean up documentation
+  - Moved repository to clustericious org on github
+    (updated meta appropriately)
+
 0.02      2015-11-05 08:06:09 -0500
   - Added itration capability to specify
     testing with different sizes; otput
