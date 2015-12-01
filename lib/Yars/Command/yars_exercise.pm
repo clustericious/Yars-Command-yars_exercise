@@ -8,6 +8,84 @@ BEGIN {
 
 =head1 SYNOPSIS
 
+ % yars_exercise [log options] [options]
+
+=head1 DESCRIPTION
+
+This command provides performance testing for L<Yars>.  Forks a number
+of processes and sends requests to the Yars server, using randomly
+generated files.  Produces a report with the average C<PUT>, C<GET>
+and C<DELETE> times.
+
+All actions are performed through L<Yars::Client>.  It uses the
+L<upload|Yars::Client#upload>, L<download|Yars::Client#download>
+and L<remove|Yars::Client#remove> methods.
+
+For each client, it randomly shuffles the order of uploads, downloads, and
+removes.  The only guarantee is that for each individual file, the first
+action is an upload and the last is a remove.  With multiple processes,
+this can cause the various operations to intermingle.
+
+Uses L<Log::Log4perl> and L<Log::Log4perl::CommandLine>, so you can specify
+any logging options they support, e.g. C<--debug root> will log a note
+with the elapsed time for each action, C<--trace Yars::Client> will log
+detailed trace log messages from the client, etc.
+
+=head1 OPTIONS
+
+This command also recognizes all options supported by
+L<Log::Log4perl::CommandLine>.
+
+=head2 --numclients I<n>
+
+The number of processes to fork.
+
+=head2 --files I<n>
+
+The number of random files to produce.
+
+=head2 --size I<size>
+
+The size of the files.  You can use any suffix supported by
+L<Number::Bytes::Human>.
+
+=head2 --gets I<n>
+
+The number of GETs to perform for each client.
+
+=head2 --runs I<filename>
+
+Put your config options in a YAML file and specify it
+with "--runs" or "-r":
+
+ % cat runs_desc.yml
+ ---
+ clients: [2,4]
+ files: [5,10]
+ gets: [10,20,40,80]
+ size: [256,256K,8M]
+
+If you list more than one option, it iterates through various
+parameters listed.
+
+C<--runs> also outputs CSV of stats from each run.
+
+=head2 --chunksize I<size>
+
+Chunksize is only used for creating the temp files, changing it won't
+affect the Yars actions.  You can use any suffix supported by
+L<NumbeR::Bytes::Human>
+
+=head2 --help
+
+Display help for this command.
+
+=head2 --version
+
+Prints the L<Yars> version.
+
+=head1 EXAMPLES
+
  $ yars_exercise --version -h|--help -m|--man
 
  $ yars_exercise -v|--verbose -q|--quiet [...other log options]
@@ -20,59 +98,6 @@ BEGIN {
  $ yars_exercise [with no options, uses the defaults above]
 
  $ yars_exercise -runs runs_desc.txt
-
-=head1 DESCRIPTION
-
-Forks <numclients>.  Each client first creates <files> files of size
-<size> filled with random bytes, Then it PUTs them to Yars, GETs them
-<gets> times, then DELETEs.
-
-For each client, it randomly shuffles the order of PUTs, GETs, and
-DELETEs, so it may PUT 1 file, PUT another, GET the first, PUT a
-third, GET the second, DELETE the first, etc.  The only guarantee is
-that for each individual file, the first action on that file is a PUT,
-the last is a DELETE.  With multiple clients, this causes GETs/PUTs to
-intermingle.
-
-All actions are performed through Yars::Client -- it uses the
-upload(), download() and remove() methods.
-
-size and chunksize can be specified with K, KB, KiB, M, MB, MiB, etc.
-
-chunksize is only used for creating the temp files, changing it won't
-affect the Yars actions.
-
-You can also put your config options in a YAML file and specify it
-with "--runs" or "-r":
-
- $ cat runs_desc.txt
-   clients: [2,4]
-   files: [5,10]
-   gets: [10,20,40,80]
-   size: [256,256K,8M]
-
-If you list more than one option, it iterates through various
-parameters listed.
-
---runs also outputs CSV of stats from each run.
-
-Use "-q" or "--quiet" option to supress INFO log messages, or
-yars_exercise -runs runs_desc.txt | tee stats.csv
-
-If you are really brave, you can specify STDIN with filename '-'
-
- $ yars_exercise -r - | tee stats.csv
- clients: [2,4]
- files: [5,10]
- gets: [10,20,40,80]
- size: [256,256K,8M]
-
-=head1 LOGGING
-
-Uses Log::Log4perl and Log::Log4perl::CommandLine, so you can specify
-any logging options they support, e.g. "--debug root" will log a note
-with the elapsed time for each action, "--trace Yars::Client" will log
-detailed trace log messages from the client, etc.
 
 =cut
 
