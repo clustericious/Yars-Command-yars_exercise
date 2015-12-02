@@ -7,6 +7,11 @@ use EV;
 use AnyEvent::Open3::Simple;
 use Test::More tests => 13;
 
+our $anyevent_test_timeout = AnyEvent->timer(
+  after => 20,
+  cb => sub { diag "TIMEOUT: giving up"; exit },
+);
+
 my $datadir = create_directory_ok 'data';
 create_config_helper_ok data_dir => sub { $datadir };
 
