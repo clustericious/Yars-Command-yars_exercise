@@ -1,10 +1,6 @@
-# NAME
+# yars\_exercise
 
-yars\_exercise - Exercise a Yars server from the client side
-
-# VERSION
-
-version 0.03
+Exercise a Yars server from the client side
 
 # SYNOPSIS
 
