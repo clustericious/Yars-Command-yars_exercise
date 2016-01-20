@@ -4,6 +4,7 @@ use EV;
 use Test::Clustericious::Log diag => 'FATAL', note => 'INFO..ERROR';
 use Test::Clustericious::Config;
 use Test::Clustericious::Cluster;
+use AnyEvent;
 use AnyEvent::Open3::Simple;
 use Test::More tests => 13;
 
