@@ -1,6 +1,7 @@
 language: perl
 
 install:
+  - perl -v
   - dzil authordeps --missing | cpanm -n
   - dzil listdeps --missing | cpanm -n
 
@@ -11,6 +12,7 @@ perl:
   - "5.16"
   - "5.18"
   - "5.20"
+  - "5.22"
 
 script:
   - dzil test -v
