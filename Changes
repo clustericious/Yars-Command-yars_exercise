@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.05      2016-06-20 13:56:34 -0400
   - Minor documentation nit
 
 0.04      2016-01-20 18:30:29 -0500
