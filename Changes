@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Minor documentation nit
 
 0.04      2016-01-20 18:30:29 -0500
   - Fix for AnyEvent::Open3::Simple in test
