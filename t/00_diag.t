@@ -17,7 +17,6 @@ $modules{$_} = $_ for qw(
   EV
   ExtUtils::MakeMaker
   Log::Log4perl
-  Log::Log4perl::CommandLine
   Number::Bytes::Human
   Parallel::ForkManager
   Path::Tiny

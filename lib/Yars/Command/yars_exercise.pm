@@ -26,7 +26,7 @@ removes.  The only guarantee is that for each individual file, the first
 action is an upload and the last is a remove.  With multiple processes,
 this can cause the various operations to intermingle.
 
-Uses L<Log::Log4perl> and L<Log::Log4perl::CommandLine>, so you can specify
+Uses L<Log::Log4perl> and L<Clustericious::Log::CommandLine>, so you can specify
 any logging options they support, e.g. C<--debug root> will log a note
 with the elapsed time for each action, C<--trace Yars::Client> will log
 detailed trace log messages from the client, etc.
@@ -34,7 +34,7 @@ detailed trace log messages from the client, etc.
 =head1 OPTIONS
 
 This command also recognizes all options supported by
-L<Log::Log4perl::CommandLine>.
+L<Clustericious::Log::CommandLine>.
 
 =head2 --numclients I<n>
 
@@ -119,7 +119,7 @@ use strict;
 use warnings;
 use 5.010;
 use Log::Log4perl qw(:easy);
-use Log::Log4perl::CommandLine ':all', ':loginit' => { level => $INFO };
+use Clustericious::Log::CommandLine ':all', ':loginit' => { level => $INFO };
 use Pod::Usage::CommandLine 0.04 qw(GetOptions pod2usage);
 use Yars::Client;
 use Number::Bytes::Human 0.09 qw(format_bytes parse_bytes);
