@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.06      2016-11-28 14:37:51 -0500
+  - remove dependency on Log::Log4perl::CommandLine
+
 0.05      2016-06-20 13:56:34 -0400
   - Minor documentation nit
 
